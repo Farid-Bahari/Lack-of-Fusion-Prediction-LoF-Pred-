@@ -11,7 +11,7 @@ st.sidebar.header("Simulation Parameters")
 width = st.sidebar.number_input("Melt Pool Width (µm)", value=138, min_value=10, max_value=1000, step=5)
 depth = st.sidebar.number_input("Melt Pool Depth (µm)", value=69, min_value=5, max_value=1000, step=5)
 layer_thickness = st.sidebar.number_input("Layer Thickness (µm)", value=25, min_value=1, max_value=500, step=1)
-hatch_distance = st.sidebar.number_input("Hatch Distance (µm)", value=130, min_value=10, max_value=1000, step=5)
+hatch_distance = st.sidebar.number_input("Hatch Distance (µm)", value=130, min_value=30, max_value=1000, step=5)
 rotation_angle_deg = st.sidebar.number_input("Rotation Angle (degrees)", value=67, min_value=0, max_value=180, step=1)
 cut_plane_depth = st.sidebar.number_input("Cut Plane Depth (µm)", value=350, min_value=0, max_value=5000, step=10)
 
@@ -19,9 +19,9 @@ cut_plane_depth = st.sidebar.number_input("Cut Plane Depth (µm)", value=350, mi
 # Fixed parameters
 theta = np.linspace(0, np.pi, 100)
 extrusion_depth = 1300
-num_paths = 30
+num_paths = 20
 num_layers = 30
-rotation_center = np.array([350, 650])
+rotation_center = np.array([num_paths*hatch_distance/2, extrusion_depth/2])
 
 # Create figure
 fig, ax = plt.subplots(1, 1, figsize=(10, 8))
@@ -123,4 +123,5 @@ plt.tight_layout()
 
 # Display in Streamlit
 st.pyplot(fig)
+
 
