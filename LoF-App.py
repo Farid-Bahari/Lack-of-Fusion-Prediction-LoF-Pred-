@@ -19,7 +19,7 @@ cut_plane_depth = st.sidebar.number_input("Cut Plane Depth (µm)", value=350, mi
 # Fixed parameters
 theta = np.linspace(0, np.pi, 100)
 extrusion_depth = 1300
-num_paths = 10
+num_paths = 30
 num_layers = 30
 rotation_center = np.array([350, 650])
 
@@ -123,3 +123,4 @@ plt.tight_layout()
 
 # Display in Streamlit
 st.pyplot(fig)
+
