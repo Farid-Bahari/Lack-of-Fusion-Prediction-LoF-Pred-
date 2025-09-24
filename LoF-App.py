@@ -19,7 +19,7 @@ cut_plane_depth = st.sidebar.number_input("Cut Plane Depth (µm)", value=350, mi
 # Fixed parameters
 theta = np.linspace(0, np.pi, 100)
 num_paths = 30
-num_layers = 30
+num_layers = 22
 extrusion_depth = num_paths*hatch_distance
 rotation_center = np.array([num_paths*hatch_distance/2, extrusion_depth/2])
 
@@ -96,7 +96,7 @@ for j in range(num_layers):
             ax.fill(x_cross[sorted_indices], z_cross[sorted_indices], color='gray', edgecolor='black', linewidth=0.5)
 
 # Axis limits
-ax.set_xlim(hatch_distance,hatch_distance+500)
+ax.set_xlim(5*hatch_distance,5*hatch_distance+500)
 ax.set_ylim(0, 500)
 
 # Labels
@@ -123,6 +123,7 @@ plt.tight_layout()
 
 # Display in Streamlit
 st.pyplot(fig)
+
 
 
 
