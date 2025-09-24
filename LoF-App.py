@@ -4,15 +4,15 @@ import streamlit as st
 
 # Streamlit page config
 st.set_page_config(page_title="LPBF Melt Pool Cross-Section", layout="centered")
-st.title("LPBF Melt Pool Cross-Section Viewer")
+st.title("Lack-of-Fusion Prediction in LPBF")
 
 # Sidebar for inputs
 st.sidebar.header("Simulation Parameters")
-width = st.sidebar.number_input("Melt Pool Width (µm)", value=138, min_value=10, max_value=1000, step=5)
 height = st.sidebar.number_input("Melt Pool Depth (negative µm)", value=-69, min_value=-1000, max_value=-1, step=1)
+width = st.sidebar.number_input("Melt Pool Width (µm)", value=138, min_value=10, max_value=1000, step=5)
 rotation_angle_deg = st.sidebar.number_input("Rotation Angle (°)", value=67, min_value=0, max_value=180, step=1)
 layer_spacing = st.sidebar.number_input("Layer Thickness (µm)", value=25, min_value=1, max_value=500, step=1)
-hatch_distance = st.sidebar.number_input("Hatch Distance (µm)", value=130, min_value=30, max_value=1000, step=5)
+hatch_distance = st.sidebar.number_input("Hatch Distance (µm)", value=130, min_value=40, max_value=1000, step=5)
 y_cut = st.sidebar.number_input("Cut Plane Depth (µm)", value=350, min_value=0, max_value=5000, step=10)
 
 # Fixed values
@@ -111,7 +111,8 @@ x_start = 6*hatch_distance + 350  # horizontal position
 z_start = 30  # vertical position
 ax.plot([x_start, x_start + scalebar_length], [z_start, z_start], color='white', linewidth=4)
 ax.text(x_start + scalebar_length/2, z_start + 10, '100 µm', color='white',
-        ha='center', va='bottom', fontsize=16)
+        ha='center', va='bottom', fontsize=26)
 
 # Show in Streamlit
 st.pyplot(fig)
+
