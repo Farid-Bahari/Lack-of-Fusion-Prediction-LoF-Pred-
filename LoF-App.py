@@ -17,7 +17,7 @@ y_cut = st.sidebar.number_input("Cut Plane Depth (µm)", value=350, min_value=0,
 
 # Fixed values
 num_layers = 22
-num_paths = 20
+num_paths = 25
 
 # Derived parameters
 theta = np.linspace(0, np.pi, 100)
@@ -101,13 +101,13 @@ for j in range(num_layers):
 ax.set_xticks([])
 ax.set_yticks([])
 ax.set_aspect('equal', adjustable='box')
-ax.set_xlim(4*hatch_distance, 4*hatch_distance+500)
+ax.set_xlim(6*hatch_distance, 6*hatch_distance+500)
 ax.set_ylim(0, 500)
 plt.tight_layout()
 
 # Add 100 µm scale bar at lower-right corner
 scalebar_length = 100  # µm
-x_start = 4*hatch_distance + 350  # horizontal position
+x_start = 6*hatch_distance + 350  # horizontal position
 z_start = 30  # vertical position
 ax.plot([x_start, x_start + scalebar_length], [z_start, z_start], color='white', linewidth=4)
 ax.text(x_start + scalebar_length/2, z_start + 10, '100 µm', color='white',
@@ -115,6 +115,7 @@ ax.text(x_start + scalebar_length/2, z_start + 10, '100 µm', color='white',
 
 # Show in Streamlit
 st.pyplot(fig)
+
 
 
 
