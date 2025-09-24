@@ -105,27 +105,13 @@ ax.set_xlim(6*hatch_distance, 6*hatch_distance+500)
 ax.set_ylim(0, 500)
 plt.tight_layout()
 
-# Add scale bar (100 µm) at lower-right
-scalebar_length = 100
-x_start = 550
-z_start = 20
+# Add 100 µm scale bar at lower-right corner
+scalebar_length = 100  # µm
+x_start = 6*hatch_distance + 350  # horizontal position
+z_start = 30  # vertical position
 ax.plot([x_start, x_start + scalebar_length], [z_start, z_start], color='white', linewidth=4)
-ax.text(x_start + scalebar_length/2, z_start + 10, '100 µm', color='white', ha='center', va='bottom', fontsize=20)
-
-plt.tight_layout()
-
+ax.text(x_start + scalebar_length/2, z_start + 10, '100 µm', color='white',
+        ha='center', va='bottom', fontsize=16)
 
 # Show in Streamlit
 st.pyplot(fig)
-
-
-
-
-
-
-
-
-
-
-
-
