@@ -96,7 +96,7 @@ for j in range(num_layers):
             ax.fill(x_cross[sorted_indices], z_cross[sorted_indices], color='gray', edgecolor='black', linewidth=0.5)
 
 # Axis limits
-ax.set_xlim(200,700)
+ax.set_xlim(hatch_distance,hatch_distance+500)
 ax.set_ylim(0, 500)
 
 # Labels
@@ -123,6 +123,7 @@ plt.tight_layout()
 
 # Display in Streamlit
 st.pyplot(fig)
+
 
 
 
