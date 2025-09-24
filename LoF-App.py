@@ -105,8 +105,19 @@ ax.set_xlim(6*hatch_distance, 6*hatch_distance+500)
 ax.set_ylim(0, 500)
 plt.tight_layout()
 
+# Add scale bar (100 µm) at lower-right
+scalebar_length = 100
+x_start = 550
+z_start = 20
+ax.plot([x_start, x_start + scalebar_length], [z_start, z_start], color='white', linewidth=4)
+ax.text(x_start + scalebar_length/2, z_start + 10, '100 µm', color='white', ha='center', va='bottom', fontsize=20)
+
+plt.tight_layout()
+
+
 # Show in Streamlit
 st.pyplot(fig)
+
 
 
 
